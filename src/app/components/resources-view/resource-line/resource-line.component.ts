@@ -17,7 +17,7 @@ export class ResourceLineComponent {
       'lumber': 'fa-tree',
       'water': 'fa-tint',
       'sheep': 'fa-horse',
-      'person': 'fa-user'
+      'person': 'fa-house'
     };
 
     return iconMap[this.type] || 'fa-question';

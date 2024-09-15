@@ -4,11 +4,12 @@ import { VillageService } from './services/village.service';
 import { ImprovementModel } from './models/improvement-model';
 import { Subscription } from 'rxjs';
 import { ResourcesViewComponent } from './components/resources-view/resources-view.component';
+import { MapComponent } from './components/map/map.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ResourcesViewComponent],
+  imports: [RouterOutlet, ResourcesViewComponent,MapComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
