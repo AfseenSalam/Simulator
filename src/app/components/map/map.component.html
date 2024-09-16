@@ -7,10 +7,15 @@
         (cellClick)="onCellClick($event)">
       </app-tile>
     </div>
+    
   </div>
- @if(showAddDialog){
-<app-add-improvement-dialog></app-add-improvement-dialog>
- } 
- @if(showEditDialog){
-<app-edit-improvement-dialog></app-edit-improvement-dialog>
- }
+  <div class="dialog-container">
+    @if(showAddDialog){
+      
+      <app-add-improvement-dialog (improvementAdded)="onImprovementAdded($event)"></app-add-improvement-dialog>
+       } 
+       @if(showEditDialog){
+      <app-edit-improvement-dialog></app-edit-improvement-dialog>
+       }
+  </div>
+    

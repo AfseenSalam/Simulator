@@ -18,6 +18,7 @@ export class MapComponent implements OnInit {
   improvements: ImprovementModel[] =[]; 
 showAddDialog:boolean = false;
 showEditDialog:boolean = false;
+selectedCellIndex: number | null = null;
   constructor(private villageService: VillageService) {}
 
   ngOnInit(): void {
@@ -47,6 +48,7 @@ showEditDialog:boolean = false;
    
    if(this.improvements[index]=== null){
 console.log("empty cell");
+this.selectedCellIndex = index;
 this.showAddDialog =true;
    }else{
     let improvement = this.improvements[index];
@@ -54,6 +56,22 @@ this.showAddDialog =true;
     this.showEditDialog =true;
    }
   }
-
+  onImprovementAdded(type: string): void {
+    if (this.selectedCellIndex !== null) {
+      let newImprovement = this.villageService.allImprovements.find(i => i.type === type);
+      
+      if (newImprovement) {
+        // Add improvement to service and update the grid
+        let result = this.villageService.addImprovement(newImprovement);
+        console.log(result);
+        
+        // Update local improvements array
+        this.improvements[this.selectedCellIndex] = newImprovement;
+        this.showAddDialog = false;
+        this.selectedCellIndex = null;
+        
+      }
+    }
+  }
   
   }

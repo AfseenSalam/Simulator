@@ -5,11 +5,12 @@ import { ImprovementModel } from './models/improvement-model';
 import { Subscription } from 'rxjs';
 import { ResourcesViewComponent } from './components/resources-view/resources-view.component';
 import { MapComponent } from './components/map/map.component';
+import { AddImprovementDialogComponent } from "./components/map/add-improvement-dialog/add-improvement-dialog.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ResourcesViewComponent,MapComponent],
+  imports: [RouterOutlet, ResourcesViewComponent, MapComponent, AddImprovementDialogComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

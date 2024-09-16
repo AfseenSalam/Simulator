@@ -20,38 +20,38 @@ export class VillageService {
   improvement:ImprovementModel[] = [];
   allImprovements: ImprovementModel[] = [
     { 
-      type: "house", 
+      type: "person", 
       level: 1,  
       cost: { person: 0, lumber: 5, grain: 5, water: 5, sheep: 1 }, 
       resource: { person: 5, lumber: 0, grain: 0, water: 0, sheep: 0 } 
     },
     { 
-      type: "field", 
+      type: "grain", 
       level: 1,  
       cost: { person: 1, lumber: 0, grain: 0, water: 2, sheep: 0 }, 
       resource: { person: 0, lumber: 0, grain: 10, water: 0, sheep: 0 } 
     },
     { 
-      type: "pasture", 
+      type: "sheep", 
       level: 1,  
       cost: { person: 1, lumber: 0, grain: 2, water: 2, sheep: 0 }, 
       resource: { person: 0, lumber: 0, grain: 0, water: 0, sheep: 5 } 
     },
     { 
-      type: "lumberMill", 
+      type: "lumber", 
       level: 1,  
       cost: { person: 1, lumber: 0, grain: 0, water: 0, sheep: 0 }, 
       resource: { person: 0, lumber: 10, grain: 0, water: 0, sheep: 0 } 
     },
     { 
-      type: "well", 
+      type: "water", 
       level: 1,  
       cost: { person: 1, lumber: 2, grain: 0, water: 0, sheep: 0 }, 
       resource: { person: 0, lumber: 0, grain: 0, water: 10, sheep: 0 } 
     }
 ];
-getImprovements() {
-  return this.improvement;
+getImprovements(type:string) {
+  return this.allImprovements.find(i=>i.type === type)||null;
 }
 
 getResources() {
